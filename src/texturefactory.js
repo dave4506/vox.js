@@ -9,7 +9,7 @@
      * @return {HTMLCanvasElement}
      */
     vox.TextureFactory.prototype.createTextureData = function(voxelData) {
-        var data = new Uint8Array( 4 * 256 );
+        var data = new Uint8Array( 3 * 256 );
 
         for (var i = 0, len = voxelData.palette.length; i < len; i++) {
             var p = voxelData.palette[i];
@@ -18,8 +18,6 @@
             data[ stride ] = p.r;
             data[ stride + 1 ] = p.g;
             data[ stride + 2 ] = p.b;
-            data[ stride + 3 ] = p.a;
-
         }
 
         return data;
@@ -40,7 +38,7 @@
         }
         
         var textureData = this.createTextureData(voxelData);
-        var texture = new THREE.DataTexture(textureData, 256, 1, THREE.RGBAFormat);
+        var texture = new THREE.DataTexture(textureData, 256, 1, THREE.RGBFormat);
         texture.needsUpdate = true;
         
         cache[hashCode] = texture;
