@@ -745,16 +745,21 @@ var canvasNodeJs = require('canvas');
      * @param {vox.VoxelData} voxelData
      * @return {HTMLCanvasElement}
      */
-    vox.TextureFactory.prototype.createCanvas = function(voxelData) {
-        var canvas = canvasNodeJs.createCanvas(256, 1);
-        var context = canvas.getContext("2d");
+    vox.TextureFactory.prototype.createTextureData = function(voxelData) {
+        var data = new Uint8Array( 4 * 256 );
+
         for (var i = 0, len = voxelData.palette.length; i < len; i++) {
             var p = voxelData.palette[i];
-            context.fillStyle = "rgb(" + p.r + "," + p.g + "," + p.b + ")";
-            context.fillRect(i * 1, 0, 1, 1);
+            var stride = i * 3;
+
+            data[ stride ] = p.r;
+            data[ stride + 1 ] = p.g;
+            data[ stride + 2 ] = p.b;
+            data[ stride + 3 ] = p.a;
+
         }
-        
-        return canvas;
+
+        return data;
     };
     
     /**
@@ -771,8 +776,8 @@ var canvasNodeJs = require('canvas');
             return cache[hashCode];
         }
         
-        var canvas = this.createCanvas(voxelData);
-        var texture = new THREE.Texture(canvas);
+        var textureData = this.createTextureData(voxelData);
+        var texture = new THREE.DataTexture(textureData);
         texture.needsUpdate = true;
         
         cache[hashCode] = texture;
