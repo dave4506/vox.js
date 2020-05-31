@@ -623,7 +623,7 @@ var THREE = require('three');
                 faces.faceA.color = color;
                 faces.faceB.color = color;
             } else {
-                var uv = new THREE.Vector2((voxel.colorIndex) / 256, 0);
+                var uv = new THREE.Vector2((voxel.colorIndex - 1) / 256, 0);
                 vox.faceVertexUvs[0].push([uv, uv, uv], [uv, uv, uv]);
             }
             vox.faces.push(faces.faceA, faces.faceB);
