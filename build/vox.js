@@ -775,7 +775,7 @@ var THREE = require('three');
         }
         
         var textureData = this.createTextureData(voxelData);
-        var texture = new THREE.DataTexture(textureData, 1, 256, THREE.RGBAFormat);
+        var texture = new THREE.DataTexture(textureData, 256, 1, THREE.RGBAFormat);
         texture.needsUpdate = true;
         
         cache[hashCode] = texture;
