@@ -1,5 +1,5 @@
 /*
- * vox.js 1.1.0-beta
+ * vox.js 1.1.0
  * https://github.com/daishihmr/vox.js
  * 
  * The MIT License (MIT)
@@ -497,6 +497,8 @@ var vox = {};
     };
 
 })();
+
+var THREE = require('three');
 
 (function() {
 
