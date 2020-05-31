@@ -733,8 +733,6 @@ var THREE = require('three');
 
 })();
 
-var canvasNodeJs = require('canvas');
-
 (function() {
     /**
      * @constructor
@@ -777,7 +775,7 @@ var canvasNodeJs = require('canvas');
         }
         
         var textureData = this.createTextureData(voxelData);
-        var texture = new THREE.DataTexture(textureData);
+        var texture = new THREE.DataTexture(textureData, 256, 1, THREE.RGBAFormat);
         texture.needsUpdate = true;
         
         cache[hashCode] = texture;

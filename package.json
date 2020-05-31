@@ -20,7 +20,6 @@
   "author": "daishihmr",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^2.6.1",
     "three": "^0.117.1"
   },
   "devDependencies": {
