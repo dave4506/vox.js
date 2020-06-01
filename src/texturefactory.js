@@ -10,7 +10,7 @@
      */
     vox.TextureFactory.prototype.createTextureData = function(voxelData) {
         var data = new Uint8Array( 3 * 256 );
-
+        console.log('pl', voxelData.palette.length);
         for (var i = 0, len = voxelData.palette.length; i < len; i++) {
             var p = voxelData.palette[i];
             var stride = i * 3;
@@ -18,6 +18,10 @@
             data[ stride ] = p.r;
             data[ stride + 1 ] = p.g;
             data[ stride + 2 ] = p.b;
+            if (i === 87) {
+                console.log(stride);
+                console.log(data[ stride ]);
+            }
         }
 
         return data;
