@@ -13,7 +13,7 @@
 
         for (var i = 0, len = voxelData.palette.length; i < len; i++) {
             var p = voxelData.palette[i];
-            var stride = i * 3;
+            var stride = i * 4;
 
             data[ stride ] = p.r;
             data[ stride + 1 ] = p.g;
