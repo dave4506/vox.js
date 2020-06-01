@@ -20,7 +20,7 @@
   "author": "daishihmr",
   "license": "MIT",
   "dependencies": {
-    "three": "0.84.0"
+    "three": "^0.117.1"
   },
   "devDependencies": {
     "gitpkg": "https://github.com/0xProject/gitpkg.git",
